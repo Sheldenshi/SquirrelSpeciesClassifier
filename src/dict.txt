@@ -1,0 +1,6 @@
+ground
+grey
+flying
+fox
+red
+chipmunk

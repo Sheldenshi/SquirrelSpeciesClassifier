@@ -1,0 +1,52 @@
+<!-- [START entire_app]  -->
+<!-- [START deps]  -->
+<script src="https://unpkg.com/@tensorflow/tfjs"></script>
+<script src="https://unpkg.com/@tensorflow/tfjs-automl"></script>
+<!-- [END deps]  -->
+<!-- [START img_tag]  -->
+<b>This is a model that predicats the squirrel type when given a picture. </b>
+<p>The model was trained on 6 most commonly seen squirrels in the US : Grey Squirrel, Red Squirrel, Ground Squirrel, Fox Squirrel, Flying Squirre, and Chipmunk. </p>
+<p>YES! I know, chipmunk is a type of squirrel.</p>
+<p> * if the picture given is not a picture of a squirrel or is not one of the six types of squirrels that the model was trained on, it will just make a guess.</p>
+<p><input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)" style="display: none;"></p>
+<p><label for="file" style="cursor: pointer;">Upload Image</label></p>
+<img id="output" width="400" crossorigin="anonymous"/>
+<button type="button" id="startPredicting" onclick="startPredicting()"> Start Predicting </button>
+<div id="ground"></div>
+<div id="grey"></div>
+<div id="red"></div>
+<div id="flying"></div>
+<div id="fox"></div>
+<div id="chipmunk"></div>
+<div id="note"></div>
+
+<!-- [END img_tag]  -->
+<script>
+ 
+async function run() {
+  // [START load_and_run_model]
+  const model = await tf.automl.loadImageClassification('model.json');
+  const image = document.getElementById('output');
+  const predictions = await model.classify(image);
+  // [END load_and_run_model]
+  console.log(predictions);
+  // Show the resulting object on the page.
+  document.getElementById("ground").innerText=predictions['0']['label']+": "+Math.round(predictions['0']['prob']*100)+"%";
+  document.getElementById("grey").innerText=predictions['1']['label']+": "+Math.round(predictions['1']['prob']*100)+"%";
+  document.getElementById("flying").innerText=predictions['2']['label']+": "+Math.round(predictions['2']['prob']*100)+"%";
+  document.getElementById("fox").innerText=predictions['3']['label']+": "+Math.round(predictions['3']['prob']*100)+"%";
+  document.getElementById("red").innerText=predictions['4']['label']+": "+Math.round(predictions['4']['prob']*100)+"%";
+  document.getElementById("chipmunk").innerText=predictions['5']['label']+": "+Math.round(predictions['5']['prob']*100)+"%";
+  document.getElementById("note").innerText=" * The label with the highest percentage is the prediction this model makes. ";
+}
+
+function startPredicting() {
+  run();
+}
+  var loadFile = function(event) {
+  var image = document.getElementById('output');
+  image.src = URL.createObjectURL(event.target.files[0]);
+
+};
+</script>
+<!-- [END entire_app]  -->
