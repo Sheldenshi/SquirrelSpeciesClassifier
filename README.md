@@ -1,5 +1,5 @@
 # 🐿 Squirrel Species Classifier Web Application
-## An Image Classification Web Appliction built using Tensorflow.js and Google Cloud AutoML Vision API.
+## An Image Classification Web Application built using Tensorflow.js and Google Cloud AutoML Vision API.
 Check out the Web Application at: [:link: Squirrel Species Classifier](https://adroit-memento-277508.uc.r.appspot.com/)
 
 It predicats the squirrel type when given a picture.
