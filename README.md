@@ -6,7 +6,7 @@ It predicats the squirrel type when given a picture.
 
 **Want to build your own image classification web app? Read my [Article]()**
 
-### Model Metrics :rotating_light:
+### Model Metrics:
 
 _**Confusion Matrix**_
 
