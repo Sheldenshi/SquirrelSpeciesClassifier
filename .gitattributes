@@ -1,0 +1,2 @@
+*.zip filter=lfs diff=lfs merge=lfs -text
+Squirrel_Classifier_Data.zip filter=lfs diff=lfs merge=lfs -text
