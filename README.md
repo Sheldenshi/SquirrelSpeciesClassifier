@@ -4,7 +4,6 @@ Check out the Web Application at: [:link: Squirrel Species Classifier](https://a
 
 It predicats the squirrel type when given a picture.
 
-**Want to build your own image classification web app? Read my [Article]()**
 
 ### Model Metrics:
 
